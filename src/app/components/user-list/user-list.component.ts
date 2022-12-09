@@ -9,6 +9,7 @@ import { User } from 'src/app/models/user';
 export class UserListComponent implements OnInit {
 
   userData:User[] = [
+    // dummy data
     {
       "gender":"female",
       "name":{"title":"Miss","first":"Jos","last":"Narváez"},
@@ -16,7 +17,7 @@ export class UserListComponent implements OnInit {
       "city":"Villamar",
       "state":"Colima",
       "country":"Mexico",
-      "postcode":'52044',
+      "postcode":52044,
       "coordinates":{"latitude":"28.0035","longitude":"85.6728"},
       "timezone":{"offset":"-8:00","description":"Pacific Time (US & Canada)"}},
       "email":"jos.narvaez@example.com",
@@ -37,7 +38,7 @@ export class UserListComponent implements OnInit {
       "city":"Villamar",
       "state":"Colima",
       "country":"Mexico",
-      "postcode":'52044',
+      "postcode":52044,
       "coordinates":{"latitude":"28.0035","longitude":"85.6728"},
       "timezone":{"offset":"-8:00","description":"Pacific Time (US & Canada)"}},
       "email":"jos.narvaez@example.com",
