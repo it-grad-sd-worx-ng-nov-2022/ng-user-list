@@ -21,10 +21,13 @@ export class AppComponent implements OnInit {
     this.errorService.onError.subscribe((message) => {      
        SWAL.fire({
           position: 'top-end',
-          icon: 'error',
+          imageUrl: 'https://thumbs.dreamstime.com/b/stressed-virtual-reality-developer-out-programmer-working-game-app-79348096.jpg',
+          imageWidth: 400,
+          imageHeight: 266,
           title: 'Gentleman, we have a problem',
           timer: 5000,
-          backdrop: false
+          backdrop: false,
+          showConfirmButton:false
           })
     }) ;
     console.error('BRRRT');
