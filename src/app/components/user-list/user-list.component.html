@@ -1,13 +1,15 @@
 <div class="container">
-  <app-search-bar [data]="userData"></app-search-bar>
+  
   <div class="row">
     <div class="col-8">
+      <!-- search bar  -->
+      <app-search-bar [data]="userData"></app-search-bar>
       <!-- user list goes here -->
      <div *ngFor="let item of userData"></div>
     </div>
     <div class="col-4">
       <!-- user details goes here -->
-      <app-user-details></app-user-details>
+     <router-outlet></router-outlet>
     </div>
   </div>
 </div>
