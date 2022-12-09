@@ -37,8 +37,8 @@ export class ApiService {
   request(url: endpointType, method: string, payload?: object, urlParams?: any) {
     // if(urlParams) return  this.endpoints[url](urlParams);
     // return this.http.request(method, this.endpoints[url]).pipe(tap((result)=>{console.log(result);this.list=result}))
-    // const finalUrl = !urlParams ? this.endpoints[url] : this.endpoints[url](urlParams);
-    // return !payload ? this.http.request(method, finalUrl).pipe(tap((result)=>{this.list=result})) : finalUrl;
+    const finalUrl = !urlParams ? this.endpoints[url] : this.endpoints[url](urlParams);
+    return !payload ? this.http.request(method, finalUrl).pipe(tap((result)=>{this.list=result})) : finalUrl;
   }
 }
 

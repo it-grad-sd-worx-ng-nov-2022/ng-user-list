@@ -16,8 +16,8 @@
       >
     </app-search-bar>
       <!-- user list goes here -->
-     <div *ngFor="let item of filteredUserData">
-        <app-card-list-template [title]="'user'"></app-card-list-template>
+    <div>
+        <app-card-list-template  [title]="'user'" [list]="userData"></app-card-list-template>
     </div>
     </div>
     <div class="col-4">
