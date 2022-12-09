@@ -1,14 +1,26 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(public http: HttpClient) { }
+  baseUrl: string = "https://randomuser.me/api/?results=20";
 
-  endpoints: { [endpoint: string]: string | any } = {}
+  constructor(public http: HttpClient) {
+
+   }
+
+  endpoints: { [endpoint: string]: string | any } = {
+
+
+    user: `${this.baseUrl} /users`, 
+    userDetails:(id: string)=> `${this.baseUrl}users/details/${id}`,
+  }
+
 
   request(url: endpointType, method: string, payload?: object, urlParams?: any) {
     const finalUrl = !urlParams ? this.endpoints[url] : this.endpoints[url](urlParams);
@@ -16,4 +28,6 @@ export class ApiService {
   }
 }
 
-export type endpointType = '';
+
+
+export type endpointType = 'user' | 'userDetails'; 
