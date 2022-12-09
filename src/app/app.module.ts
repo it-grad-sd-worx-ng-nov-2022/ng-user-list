@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxLoadingModule } from 'ngx-loading';
@@ -16,7 +17,7 @@ import { InterceptorProviders } from './interceptors/interceptors';
     BrowserModule,
     AppRoutingModule,
     NgxLoadingModule.forRoot({}),
-
+    HttpClientModule
   ],
   providers: [
     InterceptorProviders
