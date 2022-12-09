@@ -1,8 +1,9 @@
 <div class="container">
-  <app-search-bar></app-search-bar>
+  <app-search-bar [data]="userData"></app-search-bar>
   <div class="row">
     <div class="col-8">
       <!-- user list goes here -->
+     <div *ngFor="let item of userData"></div>
     </div>
     <div class="col-4">
       <!-- user details goes here -->
