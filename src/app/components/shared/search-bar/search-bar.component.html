@@ -6,7 +6,7 @@
         <span class="input-group-text" (click)="searchArrary()">
             <i class="fa fa-search"></i>
         </span>
-        <input type="text" class="form-control" aria-label="Search Box" [(ngModel)]="searchText">
+        <input type="text" class="form-control" aria-label="Search Box" [(ngModel)]="searchText" (keydown.enter)="searchArrary()">
         <span class="input-group-text" (click)="clearSearchText()">
             <i class="fa fa-times"></i>
           </span>
