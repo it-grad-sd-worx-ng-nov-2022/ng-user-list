@@ -9,6 +9,7 @@ import { User } from 'src/app/models/user';
 export class UserListComponent implements OnInit {
 
   filteredUserData?:User[];
+  apiRequestSeed:string = 'Students'// default seed is Students
   userData:User[] = [
     // dummy data
     {
@@ -63,6 +64,13 @@ export class UserListComponent implements OnInit {
   setData(filteredData:User[]) {
     console.log("waza",filteredData);
     this.filteredUserData = filteredData;
+  }
+
+  getSeedUsers() {
+    console.log("Call API with the following seed ->", this.apiRequestSeed);
+    
+    // this.apiRequestSeed;
+    // Call API request method with seed
   }
 
 }
