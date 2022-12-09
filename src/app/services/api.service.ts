@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  baseUrl: string = "https://randomuser.me/api/?results=20";
+  baseUrl: string = "https://randomuser.me/api/?results=";
 
   constructor(public http: HttpClient) {
 
@@ -17,7 +17,7 @@ export class ApiService {
   endpoints: { [endpoint: string]: string | any } = {
 
 
-    user: `${this.baseUrl} /users`, 
+    user: (results:number) => `${this.baseUrl}${results}`, 
     userDetails:(id: string)=> `${this.baseUrl}users/details/${id}`,
   }
 

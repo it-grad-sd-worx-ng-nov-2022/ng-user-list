@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import SWAL from 'sweetalert2'
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { ApiService } from './services/api.service';
 import { ErrorService } from './services/error.service';
 
 @Component({
@@ -12,12 +13,17 @@ export class AppComponent implements OnInit {
  
   constructor(
    public errorService: ErrorService,
+   public api:ApiService
   ) {
     
   }
   
   ngOnInit(): void {
     
+    this.api.request('user', 'get', undefined, '20').subscribe((x) => {
+      console.log(x);
+    })
+
     this.errorService.onError.subscribe((message) => {      
        SWAL.fire({
           position: 'top-end',
