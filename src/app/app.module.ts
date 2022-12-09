@@ -5,12 +5,18 @@ import { NgxLoadingModule } from 'ngx-loading';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SearchBarComponent } from './components/shared/search-bar/search-bar.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { InterceptorProviders } from './interceptors/interceptors';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SearchBarComponent,
+    UserListComponent,
+    UserDetailsComponent,
     LoadingComponent
   ],
   imports: [
