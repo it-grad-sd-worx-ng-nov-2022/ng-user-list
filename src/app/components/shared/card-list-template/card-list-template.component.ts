@@ -13,6 +13,9 @@ export class CardListTemplateComponent implements OnInit {
   @Output() itemSelected:EventEmitter<string> = new EventEmitter();
 
   isViewed: boolean = false;
+  isNotClicked:boolean = true;
+  currentClickedId?:number;
+
   borders:string = 'background-color: red';
   
   //create a dummy data
@@ -37,7 +40,10 @@ export class CardListTemplateComponent implements OnInit {
   constructor() { }
 
   isClicked(id:number){
-    if(id) this.isViewed = !this.isViewed;
+    if(id) {
+          this.currentClickedId = id;        
+          }
+   
   }
   ngOnInit(): void {
   }
