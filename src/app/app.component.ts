@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import SWAL from 'sweetalert2'
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { ErrorService } from './services/error.service';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +11,14 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
 export class AppComponent implements OnInit {
  
   constructor(
-   public errorInterceptor: ErrorInterceptor
+   public errorService: ErrorService,
   ) {
     
   }
   
   ngOnInit(): void {
     
-    this.errorInterceptor.onError.subscribe((message) => {
-      console.log('errrr');
+    this.errorService.onError.subscribe((message) => {      
        SWAL.fire({
           position: 'top-end',
           icon: 'error',
@@ -27,7 +27,8 @@ export class AppComponent implements OnInit {
           backdrop: false
           })
     }) ;
-    this.errorInterceptor.onError.next('eroorrrr');
+    console.error('BRRRT');
+    this.errorService.onError.next('Test error');
   } 
   
 }
