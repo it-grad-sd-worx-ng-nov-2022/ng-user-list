@@ -18,7 +18,7 @@ export class ApiService {
 
 
     user: (results:number) => `${this.baseUrl}${results}`, 
-    userDetails:(id: string)=> `${this.baseUrl}users/details/${id}`,
+    userDetails:(id: string)=> `${this.baseUrl}users/details/${id}`, // <== not working, we must fix URL
   }
 
 
