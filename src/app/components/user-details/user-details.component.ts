@@ -8,7 +8,7 @@ import { User } from '../../models/user';
 })
 export class UserDetailsComponent implements OnInit {
 
-  userId: string | null ='';
+ // userId: string | null ='';
   selectedUser?:User[];
   constructor() { }
 
