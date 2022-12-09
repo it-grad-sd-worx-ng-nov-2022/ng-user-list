@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row row-cols-2">
         <div class="col mb-4" *ngFor="let item of users; let i = index">
-            <div class="card border-0 card-user" *ngIf="title == 'user'">  
-                <div class="card-body test d-flex justify-content-between align-items-center" (click)="isViewed" [ngClass]="{'border': '2px solid red;' == borders}">
+            <div class="card border-0 card-user" *ngIf="title == 'user'" (click)="isClicked(item.id)" >  
+                <div class="card-body test d-flex justify-content-between align-items-center" [ngClass]="{'bg-success' : isViewed}">
                     <img [src]="item.imageUrl" class="card-img-top imgProfile"  alt="...">
-                    <h5 class="card-text">
+                    <h5 class="card-text"> {{isViewed}} {{i}}
                         {{item.name}}                   
-                        </h5>  
+                    </h5>  
                 </div>
             </div>    
     </div>    

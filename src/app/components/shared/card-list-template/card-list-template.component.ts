@@ -19,20 +19,26 @@ export class CardListTemplateComponent implements OnInit {
   users = [
     {
     imageUrl:'https://www.shutterstock.com/image-vector/standard-user-icon-avatar-260nw-467859071.jpg',
-    name: 'Ali Asrhar'
+    name: 'Ali Asrhar',
+    id:1,
     },
     {
       imageUrl:'https://www.shutterstock.com/image-vector/standard-user-icon-avatar-260nw-467859071.jpg',
-      name: 'Ali Asrhar'
+      name: 'Ali Asrhar',
+      id:2,
       },
       {
         imageUrl:'https://www.shutterstock.com/image-vector/standard-user-icon-avatar-260nw-467859071.jpg',
-        name: 'Ali Asrhar'
+        name: 'Ali Asrhar',
+        id:3,
         }
 
   ]
   constructor() { }
 
+  isClicked(id:number){
+    if(id) this.isViewed = !this.isViewed;
+  }
   ngOnInit(): void {
   }
 
