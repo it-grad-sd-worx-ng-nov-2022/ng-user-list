@@ -5,6 +5,9 @@ import { NgxLoadingModule } from 'ngx-loading';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavComponent } from './components/shared/nav/nav.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { CardListTemplateComponent } from './components/shared/card-list-template/card-list-template.component';
 import { SearchBarComponent } from './components/shared/search-bar/search-bar.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
@@ -15,6 +18,9 @@ import { InterceptorProviders } from './interceptors/interceptors';
 @NgModule({
   declarations: [
     AppComponent,
+    NavComponent,
+    FooterComponent,
+    CardListTemplateComponent,
     SearchBarComponent,
     UserListComponent,
     UserDetailsComponent,
