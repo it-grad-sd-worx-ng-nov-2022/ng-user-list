@@ -8,6 +8,7 @@ import { User } from 'src/app/models/user';
 })
 export class UserListComponent implements OnInit {
 
+  filteredUserData?:User[];
   userData:User[] = [
     // dummy data
     {
@@ -41,7 +42,7 @@ export class UserListComponent implements OnInit {
       "postcode":52044,
       "coordinates":{"latitude":"28.0035","longitude":"85.6728"},
       "timezone":{"offset":"-8:00","description":"Pacific Time (US & Canada)"}},
-      "email":"jos.narvaez@example.com",
+      "email":"waza.narvaez@example.com",
       "login":{"uuid":"8902aff4-7817-4274-8bcf-b2649b0abe46","username":"yellowpanda213","password":"scamper","salt":"IeBlEpbU","md5":"c9782aa11f80ef20f930261136fa3a6d","sha1":"7b0190b0f7bcc75d85769b8d10ac3bf29bb1019b","sha256":"ff13c51f35e62edfe6d679f54a296d788d4780b8f81b2d4523e39bf0e0754175"},
       "dob":{"date":"1966-10-19T02:16:02.809Z","age":56},
       "registered":{"date":"2008-06-21T13:58:25.633Z","age":14},
@@ -56,6 +57,12 @@ export class UserListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.filteredUserData = this.userData;
+  }
+
+  setData(filteredData:User[]) {
+    console.log("waza",filteredData);
+    this.filteredUserData = filteredData;
   }
 
 }

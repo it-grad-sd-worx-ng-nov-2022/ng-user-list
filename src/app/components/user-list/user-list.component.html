@@ -1,11 +1,19 @@
 <div class="container">
-  
+
   <div class="row">
     <div class="col-8">
       <!-- search bar  -->
-      <app-search-bar [data]="userData"></app-search-bar>
+      <app-search-bar 
+      [data]="userData"
+      (filteredData)="setData($event)"
+      >
+    </app-search-bar>
       <!-- user list goes here -->
-     <div *ngFor="let item of userData"></div>
+     <div *ngFor="let item of filteredUserData">
+      <div class="card">
+        {{item.name.first}} {{item.name.last}}
+      </div>
+     </div>
     </div>
     <div class="col-4">
       <!-- user details goes here -->
