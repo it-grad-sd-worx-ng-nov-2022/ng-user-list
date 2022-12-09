@@ -2,7 +2,7 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
 .test{
-    border: 2px solid red;
+    
     border-radius: 55px;
 }
 .nav-image{
@@ -27,10 +27,39 @@
 .card-user:hover{
     cursor: pointer;
     border-radius: 55px;
-    background-color: 	#E8E8E8;
+    background-color: 	hsl(0, 0%, 91%);
 }
 
+.bg-pale{
+border:2px solid rgb(107, 107, 235);
 
-.changeBackground{
-    background-color: rgb(255, 0, 0);
 }
+.img-blur {
+    filter: blur(5px);
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.thumbnail {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+.new_card{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.img-pack {
+    position: absolute;
+    top: 60px;
+    left: 33%;
+    width: 150px;
+}
+.display-name{
+    padding-top:10px;
+    text-align: center;
+}
+
