@@ -17,6 +17,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       retry(1),
       catchError((error : HttpErrorResponse) => {
+        console.log("test");
         return throwError(error);
       })
     );
