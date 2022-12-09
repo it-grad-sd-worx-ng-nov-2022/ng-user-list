@@ -1,2 +1,14 @@
-<div class="card card-header"></div>
-<div class="card-body"></div>
+<div class="card card-header">
+    Search {{arrayTitle | uppercase}}
+</div>
+<div class="card-body">
+    <div class="input-group mb-3">
+        <span class="input-group-text" (click)="searchArrary()">
+            <i class="fa fa-search"></i>
+        </span>
+        <input type="text" class="form-control" aria-label="Search Box">
+        <span class="input-group-text" (click)="clearSearchText()">
+            <i class="fa fa-times"></i>
+          </span>
+    </div>
+</div>
