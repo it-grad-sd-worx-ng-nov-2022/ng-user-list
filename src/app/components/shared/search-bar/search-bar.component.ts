@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-search-bar',
@@ -7,7 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
 
-  @Input() arrayTitle?:string;
+  @Input() data:User[] | any[] = [];
+  filteredData?:any;
   searchText:string = '';
 
   constructor() { }
@@ -17,11 +19,21 @@ export class SearchBarComponent implements OnInit {
   }
 
   searchArrary() {
+    const text = this.searchText.toLowerCase();
+    this.filteredData = this.data.filter((user:User) => {
+      return (
+        user.name.first.toLowerCase().includes(text) ||
+        user.name.last.toLowerCase().includes(text)
+
+      );
+    });
+    
+
 
   }
 
   clearSearchText() {
-
+    this.filteredData = this.data;
     this.searchText = '';
   }
 
