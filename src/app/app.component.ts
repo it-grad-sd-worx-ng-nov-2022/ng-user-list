@@ -20,9 +20,14 @@ export class AppComponent implements OnInit {
   
   ngOnInit(): void {
     
-    this.api.request('user', 'get', undefined, '20').subscribe((x) => {
-      console.log(x);
-    })
+    // this.api.request('userList', 'get').subscribe((result:any) => {
+    //   console.log(this.api.list);
+    // })
+    // this.api.request('userDetails', 'get', undefined,"2").subscribe((result:any) => {
+    //   console.log(result);
+    // })
+
+    // console.log('test',this.api.list)
 
     this.errorService.onError.subscribe((message) => {      
        SWAL.fire({
@@ -36,7 +41,6 @@ export class AppComponent implements OnInit {
           showConfirmButton:false
           })
     }) ;
-    console.error('BRRRT');
     this.errorService.onError.next('Test error');
   } 
   
