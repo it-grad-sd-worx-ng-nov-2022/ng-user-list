@@ -10,7 +10,8 @@ import { User } from 'src/app/models/user';
 export class SearchBarComponent implements OnInit {
 
   @Input() data:User[] | any[] = [];
-  @Output() filteredData: EventEmitter<User[]> = new EventEmitter();
+  @Output() filteredData: EventEmitter<any[]> = new EventEmitter();
+  filteredArrayData:User[] = [];
   searchText:string = '';
 
   constructor() { }
@@ -21,22 +22,33 @@ export class SearchBarComponent implements OnInit {
 
   searchArrary() {
     const text = this.searchText.toLowerCase();
-     this.filteredData = this.data.filter((user:User) => {
-      return (
-        user.name.first.toLowerCase().includes(text) ||
-        user.name.last.toLowerCase().includes(text)
-
-      );
-        
-    });
+    console.log("Search Key -> ", text);
     
+    this.filteredArrayData = this.data.filter(
+      (user:User) => {
+        return(
+          user.email.toLowerCase().includes(text) ||
+          user.name.first.toLowerCase().includes(text) ||
+          user.name.last.toLowerCase().includes(text)
+        )
+      }
+    );
 
+    console.log("search method -> should get search result ->", this.filteredArrayData);
+    
+    this.emitFilteredData();
 
   }
-
+  
   clearSearchText() {
-    this.filteredData = this.data;
+    this.filteredArrayData = this.data;
     this.searchText = '';
+    this.emitFilteredData();
   }
+  
+  emitFilteredData() {
+    this.filteredData.emit(this.filteredArrayData);
+  }
+
 
 }
