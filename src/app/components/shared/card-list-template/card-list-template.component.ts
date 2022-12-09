@@ -11,6 +11,9 @@ export class CardListTemplateComponent implements OnInit {
   @Input() list:any[] =[]; //put it to type user later
 
   @Output() itemSelected:EventEmitter<string> = new EventEmitter();
+
+  isViewed: boolean = false;
+  borders:string = 'background-color: red';
   
   //create a dummy data
   users = [

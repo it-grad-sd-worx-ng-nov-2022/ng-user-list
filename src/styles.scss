@@ -1,8 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap.scss";
 
+.test{
+    border: 2px solid red;
+    border-radius: 55px;
+}
+
 .imgProfile{
     border-radius: 50%;
     height:100px;
     width:100px;
+}
+
+.card-user:hover{
+    cursor: pointer;
+    border-radius: 55px;
+    background-color: 	#E8E8E8;
 }
