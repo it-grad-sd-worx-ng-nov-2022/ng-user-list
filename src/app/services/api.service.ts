@@ -10,6 +10,7 @@ import { Observable, tap } from 'rxjs';
 export class ApiService {
 
   baseUrl: string = "https://randomuser.me/api/?results=20&seed=";
+  //userBaseUrl:string = "https://randomuser.me/api/";
 
   list: {[k:string]:string | any} = {};
 
@@ -20,13 +21,16 @@ export class ApiService {
     userList: `${this.baseUrl}`, 
     students: `${this.baseUrl}students`,
     alumni: `${this.baseUrl}alumni`,
-    teachers: `${this.baseUrl}teachers`
+    teachers: `${this.baseUrl}teachers`,
     // userDetails:(id: string)=> {
     //   return new Observable((subscriber) => {
     //     subscriber.next(this.getUserById(id));
     //     subscriber.complete();
     //   })
     // },
+
+    //for testing
+    //getUserId: (name:string) => `${this.userBaseUrl}?name=${name}`
   }
 
   getUserById(id:string){
@@ -44,4 +48,4 @@ export class ApiService {
 
 
 
-export type endpointType = 'userList' | 'students' | 'teachers' | 'alumni'; 
+export type endpointType = 'userList' | 'students' | 'teachers' | 'alumni' ; 
