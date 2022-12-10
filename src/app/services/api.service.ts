@@ -1,12 +1,12 @@
-
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-
 
 @Injectable({
+
   providedIn: 'root'
+
 })
+
 export class ApiService {
 
   baseUrl: string = "https://randomuser.me/api/?results=20&seed=";
@@ -15,10 +15,12 @@ export class ApiService {
   list: {[k:string]:string | any} = {};
 
   constructor(public http: HttpClient) {
+
   }
 
   endpoints: { [endpoint: string]: string | any } = {
-    userList: `${this.baseUrl}`, 
+
+    userList: `${this.baseUrl}`,
     students: `${this.baseUrl}students`,
     alumni: `${this.baseUrl}alumni`,
     teachers: `${this.baseUrl}teachers`,
@@ -39,13 +41,10 @@ export class ApiService {
   }
 
   request(url: endpointType, method: string, payload?: object, urlParams?: any) {
-    // if(urlParams) return  this.endpoints[url](urlParams);
-    // return this.http.request(method, this.endpoints[url]).pipe(tap((result)=>{console.log(result);this.list=result}))
     const finalUrl = !urlParams ? this.endpoints[url] : this.endpoints[url](urlParams);
-    return !payload ? this.http.request(method, finalUrl).pipe(tap((result)=>{this.list=result})) : finalUrl;
+    return !payload ? this.http.request(method, finalUrl) : this.http.request(method, finalUrl, {body : payload});
   }
+
 }
 
-
-
-export type endpointType = 'userList' | 'students' | 'teachers' | 'alumni' ; 
+export type endpointType = 'userList' | 'students' | 'teachers' | 'alumni';
