@@ -8,20 +8,20 @@
                     </div>
                     <div class="flip-card-back">
                         <h1 style="margin: 0 0 10rem 0;">Students</h1>
-                        <button class="btn btn-warning">View List</button>
+                        <button class="btn btn-warning" [routerLink]="['user/',studentSeed]" >View List</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-sm-4">
-            <div class="card flip-card shadow">
+                        <div class="card flip-card shadow">
                 <div class="flip-card-inner">
                     <div class="flip-card-front card">
                         <img class="image-flip" src="../../../assets/images/teachers.jpg" alt="">
                     </div>
                     <div class="flip-card-back">
                         <h1 style="margin: 0 0 10rem 0;">Teachers</h1>
-                        <button class="btn btn-warning">View List</button>
+                        <button class="btn btn-warning" [routerLink]="['user/',teacherSeed]">View List</button>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="flip-card-back">
                         <h1 style="margin: 0 0 10rem 0;">Alumni</h1>
-                        <button class="btn btn-warning">View List</button>
+                        <button class="btn btn-warning" [routerLink]="['user/',alumniSeed]">View List</button>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -11,21 +12,35 @@ export class UserListComponent implements OnInit {
 
   filteredUserData?:User[];
   //filteredUserData?:User[] = [];
-  apiRequestSeed:string = 'Students';// default seed is Students
+  apiRequestSeed: any;
   userData:User[] = [];
 
-  constructor(public api:ApiService) { }
+  constructor(public api:ApiService,
+    public activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+  
+    this.apiRequestSeed = this.activatedRoute.snapshot.paramMap.get('seed');//initially retrieve from param
+    console.log('after paramMap ', this.apiRequestSeed); 
+
+    if(this.apiRequestSeed){
+      this.getSeedUsers();
+      console.log("inside if",this.apiRequestSeed);
+    }else{
+      this.apiRequestSeed ='Students';
+      this.getSeedUsers();
+      console.log("inside else ",this.apiRequestSeed);
+    }
+
     this.filteredUserData = this.userData;
-    //calling the users on page load with initial value of students
-    this.getSeedUsers();
   }
+
 
   setData(filteredData:User[]) {
     console.log("waza",filteredData);
     this.filteredUserData = filteredData;
   }
+
 
   getSeedUsers() {
     console.log("Call API with the following seed ->", this.apiRequestSeed);
