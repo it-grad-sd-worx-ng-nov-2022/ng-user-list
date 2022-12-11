@@ -15,6 +15,7 @@ export class UserDetailsComponent implements OnInit {
   userId: string | null = '';
   // selectedUser?: Login;
   @Input() selectedUser: User | any = {};
+  @Input() selectedGroup?:string;
 
 
   constructor(
@@ -25,24 +26,6 @@ export class UserDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.userId = this.activatedRoute.snapshot.paramMap.get('id');
-    // console.log('user id: ', this.userId);
 
-    // //if exists
-    // if(this.userId){
-    //   this.getUserDetails();
-    // }
-
-    //for testing
-    // this.router.events.subscribe((result) => {
-    //   if(result instanceof NavigationEnd){
-    //     this.userId = this.userId = this.activatedRoute.snapshot.paramMap.get('id');
-    //     this.getUserDetails();
-    //     console.log('router events user id: ', this.userId);
-    //   }
-    // });
   }
-
-
-
 }
