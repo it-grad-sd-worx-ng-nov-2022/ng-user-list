@@ -14,9 +14,12 @@ export class UserListComponent implements OnInit {
   //filteredUserData?:User[] = [];
   apiRequestSeed: any;
   userData:User[] = [];
-
+  tableView:boolean = false;
+  
   constructor(public api:ApiService,
     public activatedRoute:ActivatedRoute) { }
+  
+  //dtOptions:DataTables.Settings={}
 
   ngOnInit(): void {
   
@@ -33,6 +36,9 @@ export class UserListComponent implements OnInit {
     }
 
     this.filteredUserData = this.userData;
+    //calling the users on page load with initial value of students
+    //this.getSeedUsers();
+    //this.dtOptions = {pagingType:'first_last_numbers',pageLength:5,lengthMenu:[5,10,15],processing:true}
   }
 
 
