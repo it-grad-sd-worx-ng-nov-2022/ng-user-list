@@ -27,9 +27,7 @@ export class CardListTemplateComponent implements OnInit {
   ) { }
 
   isClicked(item:User){
-    console.log('User clicked: ', item)
-    // this.selectedUserService.selectedUser = item;
-
+    console.log('Card list template item',item);
   }
 
   ngOnInit(): void {
