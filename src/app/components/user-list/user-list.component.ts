@@ -8,7 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-
+  currentTheme:string = 'light';
   filteredUserData: User[] = [];
   //filteredUserData?:User[] = [];
   apiRequestSeed: string = 'Students';// default seed is Students
@@ -20,6 +20,7 @@ export class UserListComponent implements OnInit {
     this.filteredUserData = this.userData;
     //calling the users on page load with initial value of students
     this.getSeedUsers();
+    
   }
 
   setData(filteredData: User[]) {

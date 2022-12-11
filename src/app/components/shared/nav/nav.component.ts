@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingService } from 'src/app/services/setting.service';
 
 @Component({
   selector: 'app-nav',
@@ -6,11 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-
-  
-  constructor() { }
+  selectedTheme:string ='';
+  currentTheme:string ='light';
+  constructor(
+    public setting:SettingService
+  ) { }
 
   ngOnInit(): void {
+    this.setting.outsetTheme.subscribe(newTheme => {
+      console.log("newTheme", newTheme);
+      this.currentTheme = newTheme;
+    });
+
+  }
+  updateTheme(){
+    console.log(this.selectedTheme)
+    this.setting.theme=this.selectedTheme
   }
 
-}
+
+  }
+ 

@@ -1,6 +1,9 @@
 <app-nav></app-nav>
 
-<router-outlet></router-outlet>
+<div [ngClass]="{'bg-secondary': currentTheme == 'dark','bg-light':currentTheme == 'light'}">
+    <router-outlet></router-outlet>
+</div>
+
 
 <app-footer></app-footer>
 

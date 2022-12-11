@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarNav">
+<nav class="navbar navbar-expand-lg" [ngClass]="{
+    'bg-light':currentTheme == 'light',
+    'bg-dark navbar-dark':currentTheme == 'dark'}">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,13 +12,28 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link text-dark" href="#" routerLinkActive="active text-dark">Home</a>
+            <a class="nav-link" [ngClass]="{
+                'text-dark':currentTheme == 'light',
+                'text-light':currentTheme == 'dark'}" href="#" routerLinkActive="active">Home</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/user']" routerLinkActive="active text-secondary">List of users</a>
+            <a class="nav-link" [ngClass]="{
+                'text-dark':currentTheme == 'light',
+                'text-light':currentTheme == 'dark'}" [routerLink]="['/user']" routerLinkActive="active">List of users</a>
+        </li>
+
+        <li class="nav-item">
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedTheme" (change)="updateTheme()">
+                <option selected disabled="true" value="">Please, select...</option>
+                <option value="light">Day mode</option>
+                <option value="dark">Night mode</option>
+               
+            </select>
         </li>
         
+       
+
         </ul>
     </div>
 </nav>
