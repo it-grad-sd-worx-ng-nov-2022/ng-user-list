@@ -10,23 +10,28 @@ import { ApiService } from 'src/app/services/api.service';
 export class UserListComponent implements OnInit {
   currentTheme:string = 'light';
   filteredUserData: User[] = [];
-  //filteredUserData?:User[] = [];
   apiRequestSeed: string = 'Students';// default seed is Students
   userData: User[] = [];
+  selectedUser:User|any = {};
 
   constructor(public api: ApiService) { }
 
   ngOnInit(): void {
-    this.filteredUserData = this.userData;
     //calling the users on page load with initial value of students
     this.getSeedUsers();
     
   }
 
-  setData(filteredData: User[]) {
-    console.log("waza", filteredData);
-    this.filteredUserData = filteredData;
+  setData(Data: User[]) {
+    console.log("waza", Data);
+    this.filteredUserData = Data;
+    this.setSelectedUser(this.filteredUserData[0]);
+    console.log("WAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -> ", this.selectedUser);
+    
+    
+    
   }
+
 
   getSeedUsers() {
     console.log("Call API with the following seed ->", this.apiRequestSeed);
@@ -34,9 +39,14 @@ export class UserListComponent implements OnInit {
     // Call API request method with seed
     this.api.role = this.apiRequestSeed;
     this.api.request('getList', 'get').subscribe((userList: { [key: string]: string | any }) => {
-      console.log('result: ', userList);
+      // console.log('result: ', userList);
       this.userData = userList['results'];
-      this.filteredUserData = this.userData;
+      this.setData(this.userData); //  initial data without any search
     });
+  }
+
+
+  setSelectedUser(user:User) {
+    this.selectedUser = user;
   }
 }

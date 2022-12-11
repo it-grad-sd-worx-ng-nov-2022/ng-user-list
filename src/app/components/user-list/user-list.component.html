@@ -4,11 +4,18 @@
     <div class="col-8">
       <h1 >Users</h1>
       <p>If you want to get contact information to specific user, just select group and then select him from the list below.</p>
-      <select class="form-select" [(ngModel)]="apiRequestSeed" (change)="getSeedUsers()">
-        <option value="Students">Students</option>
-        <option value="Alumni">Alumni</option>
-        <option value="Teachers">Teachers</option>
-      </select>
+      <div class="row">
+        <div class="col-4">
+          <p>Select group of users.</p>
+        </div>
+        <div class="col-6">
+          <select class="form-select" [(ngModel)]="apiRequestSeed" (change)="getSeedUsers()">
+            <option value="Students">Students</option>
+            <option value="Alumni">Alumni</option>
+            <option value="Teachers">Teachers</option>
+          </select>
+        </div>
+      </div>
       <!-- search bar  -->
       <app-search-bar
       [data]="userData"
@@ -16,13 +23,18 @@
       >
     </app-search-bar>
       <!-- user list goes here -->
-    <div>
-        <app-card-list-template  [title]="'user'" [list]="userData"></app-card-list-template>
-    </div>
+      <app-card-list-template  
+      [title]="'user'" 
+      [list]="filteredUserData"
+      (selectedUser)="setSelectedUser($event)"
+      ></app-card-list-template>
     </div>
     <div class="col-4">
       <!-- user details goes here -->
-      <router-outlet></router-outlet>
+      <app-user-details
+      [selectedUser] = "selectedUser"
+      ></app-user-details>
+      <!-- <router-outlet></router-outlet> -->
     </div>
   </div>
 </div>

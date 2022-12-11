@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Id } from 'src/app/models/id';
 import { User } from 'src/app/models/user';
 import { ApiService } from '../../../services/api.service';
+import { SelectedUserService } from '../../../services/selected-user.service';
 
 @Component({
   selector: 'app-card-list-template',
@@ -10,25 +11,31 @@ import { ApiService } from '../../../services/api.service';
 })
 export class CardListTemplateComponent implements OnInit {
 
-  @Input() title:string = "";
-  @Input() list:User[] |any[] | Id[] = []; //import interface
-  @Output() itemSelected:EventEmitter<string> = new EventEmitter();
+  @Input() title: string = "";
+  @Input() list: User[] | any[] | Id[] = []; //import interface
+  @Output() selectedUser: EventEmitter<any> = new EventEmitter();
 
-  isViewed: boolean = false;
-  isNotClicked:boolean = true;
-  currentClickedId?:number;
+  currentClickedId?: number | any;
 
-  borders:string = 'background-color: red';
+  borders: string = 'background-color: red';
 
   //create a dummy data
 
   constructor(
-    public api:ApiService,
+    public api: ApiService,
+    public selectedUserService: SelectedUserService,
   ) { }
 
-  isClicked(item:User){
-    console.log('Card list template item',item);
+  isClicked(item: User) {
+    if (item) {
+      this.currentClickedId = item.id;
+      
+      // this.selectedUserService.setSelectedUser(item);
+      this.selectedUser.emit(item);
+
+    }
   }
+
   ngOnInit(): void {
 
   }

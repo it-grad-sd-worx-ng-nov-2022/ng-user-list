@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Console } from 'console';
 import { Login } from 'src/app/models/login';
 import { ApiService } from 'src/app/services/api.service';
 import { User } from '../../models/user';
+import { SelectedUserService } from '../../services/selected-user.service';
 
 @Component({
   selector: 'app-user-details',
@@ -12,20 +12,20 @@ import { User } from '../../models/user';
 })
 export class UserDetailsComponent implements OnInit {
 
-  userId: string | null ='';
-  selectedUser?: Login;
-  userList: User[] = [];
+  userId: string | null = '';
+  // selectedUser?: Login;
+  @Input() selectedUser: User | any = {};
+  testTitle:string = "HElloworld"
 
 
   constructor(
-    public apiService:ApiService,
-    public activatedRoute:ActivatedRoute,
-    public router:Router
+    public apiService: ApiService,
+    public activatedRoute: ActivatedRoute,
+    public router: Router,
+    public selectedUserService: SelectedUserService,
   ) { }
 
   ngOnInit(): void {
-    this.getUserList();
-    console.log('User Details List:', this.userList);
     // this.userId = this.activatedRoute.snapshot.paramMap.get('id');
     // console.log('user id: ', this.userId);
 
@@ -44,8 +44,8 @@ export class UserDetailsComponent implements OnInit {
     // });
   }
 
-  getUserList(){
-    this.userList = this.apiService.getUserList();
+  ngOnChange() {
+  
   }
 
   //for testing
@@ -56,5 +56,7 @@ export class UserDetailsComponent implements OnInit {
   //     console.log('selected user: ', this.selectedUser);
   //   });
   // }
+
+
 
 }
