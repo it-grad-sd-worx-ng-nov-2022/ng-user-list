@@ -32,6 +32,7 @@ export class CardListTemplateComponent implements OnInit {
 
     }
   }
+
   ngOnInit(): void {
 
   }
