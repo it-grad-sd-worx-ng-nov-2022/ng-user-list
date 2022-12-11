@@ -26,8 +26,12 @@ export class CardListTemplateComponent implements OnInit {
     public api:ApiService,
   ) { }
 
-  isClicked(item:User){
-    console.log('Card list template item',item);
+  isClicked(id:number){
+    if(id) {
+          this.currentClickedId = id;
+          console.log('App card list template list',this.list);
+          this.api.setUserList(this.list);
+          }
   }
   ngOnInit(): void {
 

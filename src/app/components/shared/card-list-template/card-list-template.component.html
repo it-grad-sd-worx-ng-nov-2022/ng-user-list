@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container">        
     <div class="row row-cols-2">
         <div class="col mb-4" *ngFor="let item of list; let i = index">
-            <div class="card border-0 card-user" *ngIf="title == 'user'" [routerLink]="['view', item.login.uuid]" (click)="isClicked(item)" >
+            <div class="card border-0 card-user" *ngIf="title == 'user'" [routerLink]="['view', item.login.uuid]" (click)="isClicked(item.id)" >  
                 <div class="card-body test d-flex justify-content-between align-items-center" [ngClass]="{'bg-pale' : currentClickedId == item.id}">
                     <img [src]="item.picture.medium" class="card-img-top imgProfile"  alt="{{item.name.title}}">
-                    <h5 class="card-text">
-                        {{item.name.first}} {{item.name.last}}
-                    </h5>
+                    <h5 class="card-text"> 
+                        {{item.name.first}} {{item.name.last}}                  
+                    </h5>  
                 </div>
-            </div>
-    </div>
+            </div>    
+    </div>    
 </div>
