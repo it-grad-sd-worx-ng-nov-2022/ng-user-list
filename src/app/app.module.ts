@@ -29,9 +29,9 @@ import { InterceptorProviders } from './interceptors/interceptors';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     NgxLoadingModule.forRoot({}),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [
     InterceptorProviders
