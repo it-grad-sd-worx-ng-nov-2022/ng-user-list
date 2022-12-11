@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-card-list-template',
@@ -8,7 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class CardListTemplateComponent implements OnInit {
 
   @Input() title:string = "";
-  @Input() list:any[] =[]; //put it to type user later
+  @Input() list:User[] =[]; //put it to type user later
 
   @Output() itemSelected:EventEmitter<string> = new EventEmitter();
 
