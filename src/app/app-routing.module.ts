@@ -5,7 +5,10 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 
 const routes: Routes = [
   {path:'user', component:UserListComponent, children:[
-    {path:'view', component:UserDetailsComponent}]}
+    {path:'view/:id', component:UserDetailsComponent}]},
+
+  //redirect the user to the user page directly on startup. Thus setting the user page as the default page.
+  { path: '', redirectTo: '/user', pathMatch: 'full' },
 ];
 
 @NgModule({
