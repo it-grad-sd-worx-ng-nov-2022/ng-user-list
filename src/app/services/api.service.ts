@@ -15,6 +15,7 @@ export class ApiService {
   //userBaseUrl:string = "https://randomuser.me/api/";
   role: string = "";
   // list: {[k:string]:string | any} = {};
+
   constructor(public http: HttpClient) {
 
   }
@@ -22,7 +23,8 @@ export class ApiService {
   endpoints: { [endpoint: string]: string | any } = {
 
     userList: `${this.baseUrl}`,
-    getList: `${this.baseUrl}results=${this.result}&seed=${this.role}`,
+    getList: (seed:string) =>  `${this.baseUrl}results=20&seed=${seed}`,
+    // getList: (results:string, seed:string) =>  `${this.baseUrl}results=${results}&seed=${seed}`,
 
     // userDetails:(id: string)=> {
     //   return new Observable((subscriber) => {
@@ -36,10 +38,9 @@ export class ApiService {
   }
 
   request(url: endpointType, method: string, payload?: object, urlParams?: any) {
-    console.log('requ: ', this.result)
     const finalUrl = !urlParams ? this.endpoints[url] : this.endpoints[url](urlParams);
-    console.log('url: ', finalUrl);
-
+    console.log('url ->>>>>>>>>>>: ', finalUrl);
+    
     return !payload ? this.http.request(method, finalUrl) : this.http.request(method, finalUrl, { body: payload });
   }
 

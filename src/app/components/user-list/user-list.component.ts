@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { ApiService } from 'src/app/services/api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-list',
@@ -38,12 +39,23 @@ export class UserListComponent implements OnInit {
 
   getSeedUsers() {
     console.log("Call API with the following seed ->", this.apiRequestSeed);
+    console.log("Call API with the following number of results ->", this.numberOfResults);
     // this.apiRequestSeed;
     // Call API request method with seed
-    this.api.request('getList', 'get').subscribe((userList: { [key: string]: string | any }) => {
-      // console.log('result: ', userList);
-      this.userData = userList['results'];
-      this.setData(this.userData); //  initial data without any search
+    // let params:HttpParams = new HttpParams();
+    // params.append('results',this.numberOfResults);
+    // params.append('seed',this.apiRequestSeed);
+
+    this.api.request('getList', 'get',undefined, this.apiRequestSeed).subscribe(
+      (response: { [key: string]: string | any }) => {
+      // console.log('result: ', response);
+      // console.log("Seed--->>>", response['info'].seed);
+     if(response['info'].seed==this.apiRequestSeed){
+
+       this.userData = response['results'];
+       this.setData(this.userData); //  initial data without any search
+       Swal.fire(this.apiRequestSeed, "Group of Users", 'success');
+      }
     });
   }
 
