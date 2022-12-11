@@ -22,8 +22,6 @@ export class UserDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.selectedUser = this.selectedUserService.selectedUser;
-
     // this.userId = this.activatedRoute.snapshot.paramMap.get('id');
     // console.log('user id: ', this.userId);
 

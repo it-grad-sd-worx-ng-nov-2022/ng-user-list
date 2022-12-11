@@ -15,7 +15,6 @@ export class ApiService {
   //userBaseUrl:string = "https://randomuser.me/api/";
   role: string = "";
   // list: {[k:string]:string | any} = {};
-
   constructor(public http: HttpClient) {
 
   }
