@@ -21,8 +21,6 @@ alumniSeed:string='Alumni';
   ) { }
 
   ngOnInit(): void {
-
-
   }
 
 }

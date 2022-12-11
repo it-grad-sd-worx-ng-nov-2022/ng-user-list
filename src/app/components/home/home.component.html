@@ -1,46 +1,54 @@
-<div class="container mt-3">
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="card flip-card shadow">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front card">
-                        <img class="image-flip" src="../../../assets/images/student.jpg" alt="">
-                    </div>
-                    <div class="flip-card-back">
-                        <h1 style="margin: 0 0 10rem 0;">Students</h1>
-                        <button class="btn btn-warning" [routerLink]="['user/',studentSeed]" >View Teachers</button>
-                        <button class="btn btn-warning">View List <i class="fa fa-expand"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-                        <div class="card flip-card shadow">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front card">
-                        <img class="image-flip" src="../../../assets/images/teachers.jpg" alt="">
-                    </div>
-                    <div class="flip-card-back">
-                        <h1 style="margin: 0 0 10rem 0;">Teachers</h1>
-                        <button class="btn btn-warning" [routerLink]="['user/',teacherSeed]">View List</button>
-                        <button class="btn btn-warning">View List <i class="fa fa-expand"></i></button>
+<section>
+    <div class="container mt-3">
+
+        <h4 class="homepage-description mt-3 mb-4">
+            View our list of Random Users with just one click !
+        </h4>
+    
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card flip-card shadow">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card">
+                            <img class="image-flip" src="../../../assets/images/student.jpg" alt="">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1 style="margin: 3rem 0 8rem 0;">Students</h1>
+                            <button class="btn btn-info me-2" [routerLink]="['user/',studentSeed]" > <i class="fa fa-arrow-right"></i> View Students</button>
+                            <!-- <button class="btn btn-warning">View List <i class="fa fa-expand"></i></button> -->
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card flip-card shadow">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front card">
-                        <img class="image-flip" src="../../../assets/images/grads.jpg" alt="">
+            <div class="col-sm-4">
+                            <div class="card flip-card shadow">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card">
+                            <img class="image-flip" src="../../../assets/images/teachers.jpg" alt="">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1 style="margin: 3rem 0 8rem 0;">Teachers</h1>
+                            <button class="btn btn-info me-2" [routerLink]="['user/',teacherSeed]"><i class="fa fa-arrow-right"></i> View Teachers</button>
+                            <!-- <button class="btn btn-warning">View List <i class="fa fa-expand"></i></button> -->
+                        </div>
                     </div>
-                    <div class="flip-card-back">
-                        <h1 style="margin: 0 0 10rem 0;">Alumni</h1>
-                        <button class="btn btn-warning" [routerLink]="['user/',alumniSeed]">View List</button>
-                        <button class="btn btn-warning">View List <i class="fa fa-expand"></i></button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card flip-card shadow">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card">
+                            <img class="image-flip" src="../../../assets/images/grads.jpg" alt="">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1 style="margin: 3rem 0 8rem 0;">Alumni</h1>
+                            <button class="btn btn-info me-2" [routerLink]="['user/',alumniSeed]"><i class="fa fa-arrow-right"></i> View Alumni</button>
+                            <!-- <button class="btn btn-warning">View List <i class="fa fa-expand"></i></button> -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    
+</section>
