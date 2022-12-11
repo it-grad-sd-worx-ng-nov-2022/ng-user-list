@@ -1,7 +1,5 @@
-import { SelectedUserService } from './../../services/selected-user.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Console } from 'console';
 import { Login } from 'src/app/models/login';
 import { ApiService } from 'src/app/services/api.service';
 import { User } from '../../models/user';
@@ -14,14 +12,13 @@ import { User } from '../../models/user';
 export class UserDetailsComponent implements OnInit {
 
   userId: string | null ='';
-  // selectedUser?: Login;
+  //selectedUser?: Login;
   selectedUser: User | any = {};
 
   constructor(
     public apiService:ApiService,
     public activatedRoute:ActivatedRoute,
     public router:Router,
-    public selectedUserService:SelectedUserService
   ) { }
 
   ngOnInit(): void {
