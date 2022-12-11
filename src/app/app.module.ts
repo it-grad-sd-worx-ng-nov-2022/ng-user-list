@@ -14,6 +14,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { InterceptorProviders } from './interceptors/interceptors';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { InterceptorProviders } from './interceptors/interceptors';
     SearchBarComponent,
     UserListComponent,
     UserDetailsComponent,
-    LoadingComponent
+    LoadingComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
