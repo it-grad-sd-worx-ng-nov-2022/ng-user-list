@@ -16,6 +16,20 @@
           </select>
         </div>
       </div>
+
+      <div class="row mt-1">
+        <div class="col-4">
+          <p>Number of users.</p>
+        </div>
+        <div class="col-6">
+          <select class="form-select" [(ngModel)]="numberOfResults" (change)="getSeedUsers()">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+          </select>
+        </div>
+      </div>
+
       <!-- search bar  -->
       <app-search-bar
       [data]="userData"
@@ -23,8 +37,8 @@
       >
     </app-search-bar>
       <!-- user list goes here -->
-      <app-card-list-template  
-      [title]="'user'" 
+      <app-card-list-template
+      [title]="'user'"
       [list]="filteredUserData"
       (selectedUser)="setSelectedUser($event)"
       ></app-card-list-template>

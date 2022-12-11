@@ -15,7 +15,6 @@ export class UserDetailsComponent implements OnInit {
   userId: string | null = '';
   // selectedUser?: Login;
   @Input() selectedUser: User | any = {};
-  testTitle:string = "HElloworld"
 
 
   constructor(
@@ -43,19 +42,6 @@ export class UserDetailsComponent implements OnInit {
     //   }
     // });
   }
-
-  ngOnChange() {
-  
-  }
-
-  //for testing
-  // getUserDetails(){
-  //   this.apiService.request('getUserId', 'get', undefined, this.userId).subscribe((userDetails: User | any) => {
-  //     console.log('user uuid is: ', userDetails['results']);
-  //     this.selectedUser = userDetails['results'];
-  //     console.log('selected user: ', this.selectedUser);
-  //   });
-  // }
 
 
 

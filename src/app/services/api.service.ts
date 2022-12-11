@@ -11,7 +11,7 @@ import { User } from '../models/user';
 export class ApiService {
 
   baseUrl: string = "https://randomuser.me/api/?";
-  result: string = "20";
+  result: string = "";
   //userBaseUrl:string = "https://randomuser.me/api/";
   role: string = "";
   // list: {[k:string]:string | any} = {};
@@ -36,7 +36,10 @@ export class ApiService {
   }
 
   request(url: endpointType, method: string, payload?: object, urlParams?: any) {
+    console.log('requ: ', this.result)
     const finalUrl = !urlParams ? this.endpoints[url] : this.endpoints[url](urlParams);
+    console.log('url: ', finalUrl);
+
     return !payload ? this.http.request(method, finalUrl) : this.http.request(method, finalUrl, { body: payload });
   }
 

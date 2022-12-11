@@ -1,4 +1,6 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -13,13 +15,14 @@ export class UserListComponent implements OnInit {
   apiRequestSeed: string = 'Students';// default seed is Students
   userData: User[] = [];
   selectedUser:User|any = {};
+  numberOfResults: string = "20";
 
   constructor(public api: ApiService) { }
 
   ngOnInit(): void {
     //calling the users on page load with initial value of students
     this.getSeedUsers();
-    
+
   }
 
   setData(Data: User[]) {
@@ -27,9 +30,9 @@ export class UserListComponent implements OnInit {
     this.filteredUserData = Data;
     this.setSelectedUser(this.filteredUserData[0]);
     console.log("WAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -> ", this.selectedUser);
-    
-    
-    
+
+
+
   }
 
 
@@ -37,7 +40,6 @@ export class UserListComponent implements OnInit {
     console.log("Call API with the following seed ->", this.apiRequestSeed);
     // this.apiRequestSeed;
     // Call API request method with seed
-    this.api.role = this.apiRequestSeed;
     this.api.request('getList', 'get').subscribe((userList: { [key: string]: string | any }) => {
       // console.log('result: ', userList);
       this.userData = userList['results'];
