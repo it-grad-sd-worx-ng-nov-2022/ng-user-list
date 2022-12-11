@@ -9,12 +9,12 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class UserListComponent implements OnInit {
 
-  filteredUserData?:User[];
+  filteredUserData: User[] = [];
   //filteredUserData?:User[] = [];
-  apiRequestSeed:string = 'Students';// default seed is Students
-  userData:User[] = [];
+  apiRequestSeed: string = 'Students';// default seed is Students
+  userData: User[] = [];
 
-  constructor(public api:ApiService) { }
+  constructor(public api: ApiService) { }
 
   ngOnInit(): void {
     this.filteredUserData = this.userData;
@@ -22,44 +22,20 @@ export class UserListComponent implements OnInit {
     this.getSeedUsers();
   }
 
-  setData(filteredData:User[]) {
-    console.log("waza",filteredData);
+  setData(filteredData: User[]) {
+    console.log("waza", filteredData);
     this.filteredUserData = filteredData;
   }
 
   getSeedUsers() {
     console.log("Call API with the following seed ->", this.apiRequestSeed);
-    
     // this.apiRequestSeed;
     // Call API request method with seed
-
-    switch(this.apiRequestSeed){
-      case "Students":{
-        this.api.request('students','get').subscribe((students:{[key:string] : string | any}) =>{
-          console.log('students: ', students);
-          this.userData = students['results'];
-          this.filteredUserData = this.userData;
-        })
-        break;
-      }
-
-      case "Alumni":{
-        this.api.request('alumni','get').subscribe((alumnis:{[key:string] : string | any}) =>{
-          console.log('Alumni: ', alumnis);
-          this.userData = alumnis['results'];
-          this.filteredUserData = this.userData;
-        })
-        break;
-      }
-
-      case "Teachers":{
-        this.api.request('teachers','get').subscribe((teachers:{[key:string] : string | any}) =>{
-          console.log('Teachers: ', teachers);
-          this.userData = teachers['results'];
-          this.filteredUserData = this.userData;
-        })
-        break;
-      }
-    }
+    this.api.role = this.apiRequestSeed;
+    this.api.request('getList', 'get').subscribe((userList: { [key: string]: string | any }) => {
+      console.log('result: ', userList);
+      this.userData = userList['results'];
+      this.filteredUserData = this.userData;
+    });
   }
 }

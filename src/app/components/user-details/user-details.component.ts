@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Console } from 'console';
 import { Login } from 'src/app/models/login';
 import { ApiService } from 'src/app/services/api.service';
 import { User } from '../../models/user';
@@ -13,6 +14,8 @@ export class UserDetailsComponent implements OnInit {
 
   userId: string | null ='';
   selectedUser?: Login;
+  userList: User[] = [];
+
 
   constructor(
     public apiService:ApiService,
@@ -21,6 +24,8 @@ export class UserDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getUserList();
+    console.log('User Details List:', this.userList);
     // this.userId = this.activatedRoute.snapshot.paramMap.get('id');
     // console.log('user id: ', this.userId);
 
@@ -37,6 +42,10 @@ export class UserDetailsComponent implements OnInit {
     //     console.log('router events user id: ', this.userId);
     //   }
     // });
+  }
+
+  getUserList(){
+    this.userList = this.apiService.getUserList();
   }
 
   //for testing
