@@ -33,7 +33,7 @@ export class UserListComponent implements OnInit {
     // Call API request method with seed
     this.api.role = this.apiRequestSeed;
     this.api.request('getList', 'get').subscribe((userList: { [key: string]: string | any }) => {
-      console.log('result: ', userList);
+      // console.log('result: ', userList);
       this.userData = userList['results'];
       this.filteredUserData = this.userData;
     });
