@@ -45,11 +45,7 @@ left: 0;
 border:2px solid rgb(12, 12, 14);
 
 }
-.img-blur {
-    filter: blur(5px);
-    max-width:max-content;
-    max-height: max-content;
-}
+
 .thumbnail{
     border-radius: 50%;
     max-width: 50%;
@@ -66,16 +62,11 @@ border:2px solid rgb(12, 12, 14);
     margin-top: 20%;
 }
 
-.img-pack {
-    position: absolute;
-    top: 60px;
-    left: 33%;
-    width: 150px;
-}
-.display-name{
-    padding-top:10px;
-    text-align: center;
-}
+
+// .display-name{
+//     padding-top:10px;
+//     text-align: center;
+// }
 
 .home-text{
 font-weight: bold;
