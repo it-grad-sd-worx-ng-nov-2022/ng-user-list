@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { User } from '../models/user';
 
 @Injectable({
@@ -15,7 +16,9 @@ export class SelectedUserService {
     console.log('Selected user service',this.selectedUser);
   }
 
-  getSelectedUser(){
+  getSelectedUser():Observable<User>{
+    console.log("getSelected USer", this.selectedUser);
+    
     return this.selectedUser;
   }
 

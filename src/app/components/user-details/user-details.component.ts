@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Login } from 'src/app/models/login';
 import { ApiService } from 'src/app/services/api.service';
@@ -13,8 +13,9 @@ import { SelectedUserService } from '../../services/selected-user.service';
 export class UserDetailsComponent implements OnInit {
 
   userId: string | null = '';
-  selectedUser?: Login;
-  item: User | any = {};
+  // selectedUser?: Login;
+  @Input() selectedUser: User | any = {};
+  testTitle:string = "HElloworld"
 
 
   constructor(
@@ -44,8 +45,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   ngOnChange() {
-    this.item = this.selectedUserService.getSelectedUser();
-    console.log('user details item:', this.item);
+  
   }
 
   //for testing
@@ -56,5 +56,7 @@ export class UserDetailsComponent implements OnInit {
   //     console.log('selected user: ', this.selectedUser);
   //   });
   // }
+
+
 
 }

@@ -1,12 +1,12 @@
 <div class="card">
     <div class="new-card-parent">
-        <img src="https://cdn05.carsforsale.com/639de78a826fed63ba9d5c122b621c02/1280x960/1991-austin-mini-rwd.jpg"
+        <img [src]="selectedUser?.picture.large"
             class="card-img-top img-blur-child" alt="...">
         <div class="img-round-child">
-            <img src="https://cdn05.carsforsale.com/639de78a826fed63ba9d5c122b621c02/1280x960/1991-austin-mini-rwd.jpg"
+            <img [src]="selectedUser?.picture.thumbnail"
                 class="card-img-top thumbnail" alt="...">
             <!-- <h5 class="card-title">{{selectedUser?.name}}</h5> -->
-            <h5 class="card-title">Fullname</h5>
+            <h5 class="card-title">{{selectedUser?.name.first | uppercase}} {{selectedUser?.name.last | uppercase}}</h5>
             <h6 class="card-title">Student</h6>
         </div>
     </div>
@@ -19,8 +19,8 @@
         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id ligula metus. Mauris non suscipit enim.</p>
 
         <!-- Email -->
-        <h6 class="card-title">Email</h6>
-        <!-- <p class="card-text">{{selectedUser?.email}}</p> -->
+        <h6 class="card-title">Email:</h6>
+        <p class="card-text">{{selectedUser?.email}}</p>
         <p class="card-text">email</p>
 
         <!-- Phone -->

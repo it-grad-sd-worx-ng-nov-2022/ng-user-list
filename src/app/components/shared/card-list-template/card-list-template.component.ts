@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Id } from 'src/app/models/id';
 import { User } from 'src/app/models/user';
 import { ApiService } from '../../../services/api.service';
@@ -13,6 +13,7 @@ export class CardListTemplateComponent implements OnInit {
 
   @Input() title: string = "";
   @Input() list: User[] | any[] | Id[] = []; //import interface
+  @Output() selectedUser: EventEmitter<any> = new EventEmitter();
 
   currentClickedId?: number | any;
 
@@ -28,7 +29,9 @@ export class CardListTemplateComponent implements OnInit {
   isClicked(item: User) {
     if (item) {
       this.currentClickedId = item.id;
-      this.selectedUserService.setSelectedUser(item);
+      
+      // this.selectedUserService.setSelectedUser(item);
+      this.selectedUser.emit(item);
 
     }
   }
