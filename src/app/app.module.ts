@@ -16,6 +16,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
 import { InterceptorProviders } from './interceptors/interceptors';
 import { HomeComponent } from './components/home/home.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule,
     NgxLoadingModule.forRoot({}),
     HttpClientModule
+
   ],
   providers: [
     InterceptorProviders

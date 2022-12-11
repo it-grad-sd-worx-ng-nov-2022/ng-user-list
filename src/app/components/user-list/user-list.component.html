@@ -16,8 +16,38 @@
       >
     </app-search-bar>
       <!-- user list goes here -->
-    <div>
+    <div>      
+      <div class="d-flex flex-row-reverse">
+        <button class="btn btn-secondary mb-3" (click)="tableView = !tableView" [ngClass]="{'text-info' : tableView}"><i class="fa fa-table"></i></button>
+      </div>
+      <div *ngIf="tableView">
+        <table class="table  table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Photo</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Profile</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of userData;let i = index;">
+              <th scope="row">{{i+1}}</th>
+              <td><img [src]="user.picture.medium" class="card-img-top imgProfile"  alt="{{user.name.title}}"></td>
+              <td><h6>{{user.name.last}} {{user.name.first}}</h6></td>
+              <td><h6>{{user.email}}</h6></td>
+              <td><a class="btn btn-warning">View Profile <i class="fa fa-eye"></i></a></td>              
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="!tableView">
         <app-card-list-template  [title]="'user'" [list]="userData"></app-card-list-template>
+      </div>
+       
     </div>
     </div>
     <div class="col-4">
