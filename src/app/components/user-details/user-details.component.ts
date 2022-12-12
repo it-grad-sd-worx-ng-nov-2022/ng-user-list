@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Login } from 'src/app/models/login';
 import { ApiService } from 'src/app/services/api.service';
 import { User } from '../../models/user';
-import { SelectedUserService } from '../../services/selected-user.service';
 
 @Component({
   selector: 'app-user-details',
@@ -22,7 +21,6 @@ export class UserDetailsComponent implements OnInit {
     public apiService: ApiService,
     public activatedRoute: ActivatedRoute,
     public router: Router,
-    public selectedUserService: SelectedUserService,
   ) { }
 
   ngOnInit(): void {

@@ -2,7 +2,6 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Id } from 'src/app/models/id';
 import { User } from 'src/app/models/user';
 import { ApiService } from '../../../services/api.service';
-import { SelectedUserService } from '../../../services/selected-user.service';
 
 @Component({
   selector: 'app-card-list-template',
@@ -23,13 +22,12 @@ export class CardListTemplateComponent implements OnInit {
 
   constructor(
     public api: ApiService,
-    public selectedUserService: SelectedUserService,
   ) { }
 
   isClicked(item: User) {
     if (item) {
       this.currentClickedId = item.id;
-      
+
       // this.selectedUserService.setSelectedUser(item);
       this.selectedUser.emit(item);
 
