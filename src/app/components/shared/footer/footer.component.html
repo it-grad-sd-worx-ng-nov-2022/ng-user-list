@@ -1,8 +1,8 @@
 <footer>
 <!-- Copyright Mark -->
-<div class="footer-class">
+<div class="footer-class" [ngClass]="{'bg-dark': currentTheme == 'dark','bg-light':currentTheme == 'light'}">
 <div class="text-center p-4">
-    <p class="text-reset footer-text"> ng-user-list: © 2022 Copyright </p>
+    <p  [ngClass]="{'text-light': currentTheme == 'dark','text-dark':currentTheme == 'light'}"> ng-user-list: © 2022 Copyright </p>
 </div>
 <!-- Copyright Mark -->
 </div>
