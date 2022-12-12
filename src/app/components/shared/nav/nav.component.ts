@@ -9,6 +9,8 @@ import { SettingService } from 'src/app/services/setting.service';
 export class NavComponent implements OnInit {
   selectedTheme:string ='';
   currentTheme:string ='light';
+  setThemeMode:boolean = false;
+
   constructor(
     public setting:SettingService
   ) { }
@@ -21,10 +23,17 @@ export class NavComponent implements OnInit {
 
   }
   updateTheme(){
-    console.log(this.selectedTheme)
-    this.setting.theme=this.selectedTheme
+
+    if(this.setThemeMode){
+      this.setting.theme = 'dark';
+    }else{
+      this.setting.theme = 'light';
+    }
+
+    // console.log(this.selectedTheme)
+    // this.setting.theme=this.selectedTheme
   }
 
 
   }
- 
+
