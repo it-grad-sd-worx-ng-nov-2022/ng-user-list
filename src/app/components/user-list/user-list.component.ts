@@ -12,11 +12,12 @@ import Swal from 'sweetalert2';
 })
 export class UserListComponent implements OnInit {
   currentTheme: string = 'light';
-  filteredUserData: User[] = [];
+  filteredUserData: User[]  = [];
   apiRequestSeed: string = 'Students';// default seed is Students
   userData: User[] = [];
   selectedUser: User | any = {};
   numberOfResults: string = "20";
+
 
   constructor(public api: ApiService) { }
 
@@ -30,6 +31,8 @@ export class UserListComponent implements OnInit {
     console.log("waza", Data);
     this.filteredUserData = Data;
     this.setSelectedUser(this.filteredUserData[0]);
+    // this.currentClicked = this.selectedUser.id;
+    // console.log('Clicked By Arooven: ',this.currentClicked);
     console.log("WAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -> ", this.selectedUser);
 
 
@@ -55,7 +58,7 @@ export class UserListComponent implements OnInit {
 
           this.userData = response['results'];
           this.setData(this.userData); //  initial data without any search
-          Swal.fire(this.apiRequestSeed, "Group of Users", 'success');
+         // Swal.fire(this.apiRequestSeed, "Group of Users", 'success');
         }
       });
   }

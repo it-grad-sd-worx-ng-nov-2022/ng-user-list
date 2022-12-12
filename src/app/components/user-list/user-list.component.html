@@ -41,6 +41,7 @@
       [title]="'user'"
       [list]="filteredUserData"
       (selectedUser)="setSelectedUser($event)"
+      [currentClickedId]="selectedUser?.id"
       ></app-card-list-template>
     </div>
     <div class="col-4">

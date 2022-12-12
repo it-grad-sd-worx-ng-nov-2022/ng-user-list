@@ -14,7 +14,7 @@ export class CardListTemplateComponent implements OnInit {
   @Input() list: User[] | any[] | Id[] = []; //import interface
   @Output() selectedUser: EventEmitter<any> = new EventEmitter();
 
-  currentClickedId?: number | any;
+  @Input() currentClickedId?: number | any = {};
 
   borders: string = 'background-color: red';
 
