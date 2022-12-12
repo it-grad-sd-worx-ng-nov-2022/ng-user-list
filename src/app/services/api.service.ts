@@ -23,7 +23,7 @@ export class ApiService {
   endpoints: { [endpoint: string]: string | any } = {
 
     userList: `${this.baseUrl}`,
-    getList: (seed:string) =>  `${this.baseUrl}results=20&seed=${seed}`,
+    getList: (seed:string) =>  `${this.baseUrl}results=${this.result}&seed=${seed}`,
     // getList: (results:string, seed:string) =>  `${this.baseUrl}results=${results}&seed=${seed}`,
 
     // userDetails:(id: string)=> {
@@ -40,7 +40,7 @@ export class ApiService {
   request(url: endpointType, method: string, payload?: object, urlParams?: any) {
     const finalUrl = !urlParams ? this.endpoints[url] : this.endpoints[url](urlParams);
     console.log('url ->>>>>>>>>>>: ', finalUrl);
-    
+
     return !payload ? this.http.request(method, finalUrl) : this.http.request(method, finalUrl, { body: payload });
   }
 
