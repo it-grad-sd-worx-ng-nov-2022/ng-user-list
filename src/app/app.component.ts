@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { ApiService } from './services/api.service';
 import { SettingService } from './services/setting.service';
 
