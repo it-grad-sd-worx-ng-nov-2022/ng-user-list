@@ -11,11 +11,11 @@ import Swal from 'sweetalert2';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-  currentTheme:string = 'light';
+  currentTheme: string = 'light';
   filteredUserData: User[] = [];
   apiRequestSeed: string = 'Students';// default seed is Students
   userData: User[] = [];
-  selectedUser:User|any = {};
+  selectedUser: User | any = {};
   numberOfResults: string = "20";
 
   constructor(public api: ApiService) { }
@@ -46,21 +46,22 @@ export class UserListComponent implements OnInit {
     // params.append('results',this.numberOfResults);
     // params.append('seed',this.apiRequestSeed);
 
-    this.api.request('getList', 'get',undefined, this.apiRequestSeed).subscribe(
+    this.api.result = this.numberOfResults;
+    this.api.request('getList', 'get', undefined, this.apiRequestSeed).subscribe(
       (response: { [key: string]: string | any }) => {
-      // console.log('result: ', response);
-      // console.log("Seed--->>>", response['info'].seed);
-     if(response['info'].seed==this.apiRequestSeed){
+        // console.log('result: ', response);
+        // console.log("Seed--->>>", response['info'].seed);
+        if (response['info'].seed == this.apiRequestSeed) {
 
-       this.userData = response['results'];
-       this.setData(this.userData); //  initial data without any search
-       Swal.fire(this.apiRequestSeed, "Group of Users", 'success');
-      }
-    });
+          this.userData = response['results'];
+          this.setData(this.userData); //  initial data without any search
+          Swal.fire(this.apiRequestSeed, "Group of Users", 'success');
+        }
+      });
   }
 
 
-  setSelectedUser(user:User) {
+  setSelectedUser(user: User) {
     this.selectedUser = user;
   }
 }
