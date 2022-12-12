@@ -2,66 +2,71 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~font-awesome/css/font-awesome.css";
 
-.new-card-parent{
-position: relative;
-top: 0;
-left: 0;
+.new-card-parent {
+  position: relative;
+  top: 0;
+  left: 0;
 }
+
 // .img-blur-child{
-    .img-blur-child{
-        filter: blur(7px);
-    }
-.test{
-    border-radius: 55px;
-    padding: 0 102px 0 0;
-}
-.nav-image{
-    width:10rem;
-    margin:1px 20px 1px 25px;
+.img-blur-child {
+  filter: blur(7px);
 }
 
-.imgProfile{
-    border-radius: 50%;
-    height:60px;
-    width:60px;
+.test {
+  border-radius: 55px;
+  padding: 0 102px 0 0;
 }
 
-.footer-text{
-    margin:1px 2px 1px 40px;
+.nav-image {
+  width: 10rem;
+  margin: 1px 20px 1px 25px;
 }
 
-#navbarNav{
-    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+.imgProfile {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
 }
 
-.card-user:hover{
-    cursor: pointer;
-    border-radius: 55px;
-    background-color: 	hsl(0, 0%, 91%);
+.footer-text {
+  margin: 1px 2px 1px 40px;
 }
 
-.bg-pale{
-border:2px solid rgb(12, 12, 14);
+#navbarNav {
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.card-user:hover {
+  cursor: pointer;
+  border-radius: 55px;
+  background-color: hsl(0, 0%, 91%);
+}
+
+.bg-pale {
+  border: 2px solid rgb(12, 12, 14);
 
 }
 
-.thumbnail{
-    border-radius: 50%;
-    max-width: 60%;
-    max-height: 60%;
- 
+.thumbnail {
+  border-radius: 50%;
+  max-width: 55%;
+  max-height: 75%;
+  scale: 85%;
+
 }
-.img-round-child{
-    position: absolute;
-   
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   padding-top: 30%;
+
+.img-round-child {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10%;
 
 }
 
@@ -71,7 +76,6 @@ border:2px solid rgb(12, 12, 14);
 //     text-align: center;
 // }
 
-.home-text{
-font-weight: bold;
+.home-text {
+  font-weight: bold;
 }
-
