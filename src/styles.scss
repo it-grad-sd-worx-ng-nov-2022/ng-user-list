@@ -44,6 +44,31 @@
   border-radius: 55px;
   background-color: hsl(0, 0%, 91%);
 }
+.bg-pale{
+border:2px solid rgb(12, 12, 14);
+
+}
+.thumbnail{
+    border-radius: 50%;
+    max-width: 50%;
+    max-height: 50%;
+    margin-bottom: 20px;
+}
+.img-round-child{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20%;
+}
+
+
+// .display-name{
+//     padding-top:10px;
+//     text-align: center;
+// }
 
 .bg-pale {
   border: 2px solid rgb(12, 12, 14);
@@ -68,7 +93,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10%;
+  padding-top: 0%;
 
 }
 
